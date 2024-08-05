@@ -30,6 +30,7 @@ return {
     return {
       -- Basic debugging keymaps, feel free to change to your liking!
       { '<F5>', dap.continue, desc = 'Debug: Start/Continue' },
+      { '<F8>', dap.run_last, desc = 'Debug: Run Last Session' },
       { '<F1>', dap.step_into, desc = 'Debug: Step Into' },
       { '<F2>', dap.step_over, desc = 'Debug: Step Over' },
       { '<F3>', dap.step_out, desc = 'Debug: Step Out' },
@@ -64,6 +65,24 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        'cpptools',
+        'codelldb',
+      },
+    }
+
+    dap.configurations.cpp = {
+      {
+        name = 'Launch',
+        type = 'codelldb',
+        request = 'launch',
+        program = function()
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd(), 'file')
+        end,
+        cwd = function()
+          return vim.fn.input('Set cwd: ', vim.fn.getcwd(), 'file')
+        end,
+        stopOnEntry = false,
+        args = {},
       },
     }
 

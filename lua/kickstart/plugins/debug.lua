@@ -30,7 +30,8 @@ return {
     return {
       -- Basic debugging keymaps, feel free to change to your liking!
       { '<F5>', dap.continue, desc = 'Debug: Start/Continue' },
-      { '<F8>', dap.run_last, desc = 'Debug: Run Last Session' },
+      { '<F8>', dap.up, desc = 'Debug: Stack frame up' },
+      { '<F9>', dap.down, desc = 'Debug: Stack frame down' },
       { '<F1>', dap.step_into, desc = 'Debug: Step Into' },
       { '<F2>', dap.step_over, desc = 'Debug: Step Over' },
       { '<F3>', dap.step_out, desc = 'Debug: Step Out' },

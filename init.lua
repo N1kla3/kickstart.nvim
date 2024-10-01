@@ -943,5 +943,7 @@ require('lazy').setup({
   },
 })
 
+-- vim.keymap.set('<leader>c', require('lspconfig').clangd.switch_source_header, 'Switch header')
+vim.keymap.set('n', '<leader>j', vim.cmd.ClangdSwitchSourceHeader, { desc = 'Switch header' })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

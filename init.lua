@@ -122,7 +122,8 @@ vim.o.showmode = false
 vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
 
 -- Enable break indent
-vim.o.breakindent = true
+vim.opt.breakindent = true
+vim.opt.smartindent = true
 
 -- Save undo history
 vim.o.undofile = true
@@ -615,7 +616,9 @@ require('lazy').setup({
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --  See `:help lsp-config` for information about keys and how to configure
       local servers = {
-        clangd = {},
+        clangd = {
+          cmd = { 'clangd', '--background-index', '--clang-tidy' },
+        },
         cmake = {
           filetypes = { 'cmake', 'CMakeLists.txt' },
         },

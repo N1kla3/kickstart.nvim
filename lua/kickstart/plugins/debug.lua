@@ -99,7 +99,28 @@ return {
           return vim.fn.input('Set cwd: ', vim.fn.getcwd(), 'file')
         end,
         stopOnEntry = false,
-        args = {},
+        args = {
+          function()
+            return vim.fn.input 'Enter command arguments: '
+          end,
+        },
+      },
+    }
+
+    dap.configurations.c = {
+      {
+        name = 'Launch',
+        type = 'codelldb',
+        request = 'launch',
+        program = function()
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '\\', 'file')
+        end,
+        stopOnEntry = false,
+        args = {
+          function()
+            return vim.fn.input 'Enter command arguments: '
+          end,
+        },
       },
     }
 

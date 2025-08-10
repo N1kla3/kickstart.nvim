@@ -174,7 +174,7 @@ vim.opt.scrolloff = 15
 vim.opt.matchpairs:append '<:>'
 
 -- Set default shell for :term
-vim.opt.shell = 'pwsh.exe'
+vim.opt.shell = '/bin/zsh'
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -839,6 +839,7 @@ require('lazy').setup({
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,
+    opts = { transparent = true },
   },
 
   -- Highlight todo, notes, etc in comments
@@ -947,6 +948,6 @@ require('lazy').setup({
 })
 
 -- vim.keymap.set('<leader>c', require('lspconfig').clangd.switch_source_header, 'Switch header')
-vim.keymap.set('n', '<leader>j', vim.cmd.ClangdSwitchSourceHeader, { desc = 'Switch header' })
+vim.keymap.set('n', '<leader>j', vim.cmd.LspClangdSwitchSourceHeader, { desc = 'Switch header' })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

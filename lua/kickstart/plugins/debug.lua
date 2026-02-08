@@ -122,6 +122,14 @@ return {
       },
     }
 
+    dap.configurations.debugpy = {
+      {
+        name = 'python',
+        request = 'launch',
+        type = 'debugpy',
+      },
+    }
+
     dap.configurations.c = {
       {
         name = 'Launch',

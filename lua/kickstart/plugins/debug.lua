@@ -55,6 +55,19 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+        'cpptools',
+        'codelldb',
+      },
+    }
+    dap.configurations.cpp = {
+      {
+        name = 'Launch',
+        type = 'codelldb',
+        request = 'launch',
+        program = function() return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '\\', 'file') end,
+        cwd = function() return vim.fn.input('Set cwd: ', vim.fn.getcwd(), 'file') end,
+        stopOnEntry = false,
+        args = {},
       },
     }
 
